@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+    
+       <style>
+                .nation{
+                    background-image: url(images/nation/q.jpeg);
+                    background-repeat: no-repeat;
+                    background-size: 52%;
+                    margin-left: 9.7%;
+                }
+                
+                img {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    z-index: -1;
+                    width: 100%;
+                }
+                .left{
+                    float: left;
+                }
+                .right{
+                    float: right;
+                    text-align: right;
+                    direction: rtl;
+                }
+                .arab{
+                    font-family: arial;
+                    text-align: center !important;
+                    direction: rtl;
+                }
+                .qr-code{
+                    border: 0px solid black;
+                    height: 250px;
+                    margin-left: 710px;
+                    margin-top: -890px;
+                
+                }
+                .head{
+                    width: 60%;
+                    color:blue;
+                    
+                    padding-top: 10px;
+                    margin-left: -40px;
+                }
+                .card{
+                    color:#3478bd;
+                    font-weight: bold;
+                    font-size: 10px;
+                    font-family: arial;
+                    text-align: center;
+                    margin-left: -140px;
+                }
+                .card2{
+                    color:#3478bd;
+                    font-family:  arial;
+                    text-align: center;
+                    margin-left: -140px;
+                    font-size: 10px;
+                }
+                .card3{
+                    color:#3478bd;
+                    font-family:  arial;
+                    text-align: center;
+                    margin-left: -100px;
+                    margin-top: 20px;
+                    font-size: 8px;
+                }
+                .card4{
+                    color:#3478bd;
+                    font-family:  arial;
+                    text-align: center;
+                    margin-left: -100px;
+                    font-size: 10px;
+                }
+                .card5{
+                    color:#3478bd;
+                    font-family:  arial;
+                    text-align: center;
+                    margin-left: -100px;
+                    font-size: 10px;
+                }
+                
+                
+                </style>
+                </head>
+                <body>
+            <div class="nation">
+                <div class="head">
+                    <h1 class="card" ><font color="#3478bd"><b>'.$id_num . '</b><font></h1>
+                    <h1 class="card2"> &nbsp;<small><font color="black" ><b>' . $e_lName. '</b></font></small> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <small class="arab" ><font color="black">'. mb_strrev1( $a_lName ). '</font></small></h1>
+                    <h1 class="card2"> &nbsp;<small><font color="black"><b>'. $e_fName .'</b></font></small> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <small class="arab" ><font color="black">'. mb_strrev1( $a_fName ).'</font></small></h1>
+                    <h1 class="card"><b>'. $birth .'</b></h1>
+                    <h1 class="card2"> &nbsp;<small><font color="black"><b>'. $nation.'</b></font></small> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <small class="arab" ><font color="black">'. mb_strrev1( $a_nation) .'</font></small></h1>
+                
+                    <h4 class="card3"><font color="#3478bd">'.$dose_type.'<font></h4>
+                    <h1 class="card4"><small><font color="#3478bd">Ref : COD - '. $ref .'</font></small> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '. $dose_date.'</h1>
+                    <h1 class="card5"><font color="black" size="6px">PASS ID</font>&nbsp;&nbsp;&nbsp;&nbsp; '. $pass_id.'</h1>
+                </div>
+            </div>
+            </body>

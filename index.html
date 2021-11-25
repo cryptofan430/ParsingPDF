@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .hidden {
+          display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="text-center">
+          <h2>Welcome</h2>
+          <p>Here you can make your form:</p>
+        </div>
+        <div class="mb-3 mt-3 ">
+            <label for="file" class="form-label">PDF file:</label>
+            <input type="file" class="form-control-file border" onchange="changeFile(this)" accept=".pdf" multiple>
+
+            <!-- <input type="file" class="form-control" id="file" placeholder="Select PDF..." "> -->
+          </div>
+        <form action="{{ url_for('background_check_throughputrate') }}" class="form-inline" method="post" id="throughputRateForm" >
+            <input type="text" class="hidden file" name="file" >
+            <div class="container w-50">
+              <button type="submit" class="btn btn-block btn-primary mt-3 ">Submit</button>
+            </div>
+        </form>
+
+        <div class="my-3">
+            <label for="pwd" class="form-label">Type:</label>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="1" onclick="handleClick(this)" checked>
+                <label class="form-check-label" for="radio1">Option 1</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="2"  onclick="handleClick(this)">
+                <label class="form-check-label" for="radio2">Option 2</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="radio3" name="optradio" value="3" onclick="handleClick(this)">
+                <label class="form-check-label" for="radio3">Option 3</label>
+              </div>
+          </div>
+        <div class="row">
+          <div class="col-md-6">
+
+            <img src="assets/img/p1.jpg" width="100%">
+            
+          </div>
+          <div class="col-md-6">
+            <img src="assets/img/p2.jpg" width="100%">
+            
+          </div>
+          <div class="col-md-4">
+            
+            <form method="post" action="output/mpdf-development/index.php" id="form1">
+              <input class="throughputRateResult hidden" name = "content"></input>
+              <input type="text" class="hidden file" name="file" >
+              <input class="type hidden" name = "type">
+              <button type="submit" class="btn btn-primary btn-block mt-3">Create</button>
+          </form>
+          </div>
+          <div class="col-md-4">
+            
+            <form method="post" action="output/mpdf-development/index.php" id="form3">
+              <input class="throughputRateResult hidden" name = "content"></input>
+              <input class="type hidden" name = "type">
+              <input type="text" class="hidden file" name="file" >
+              <button type="submit" class="btn btn-success btn-block mt-3">Create</button>
+          </form>
+          </div>
+          <div class="col-md-4">
+            
+            <form method="post" action="output/mpdf-development/index.php" id="form2">
+              <input class="throughputRateResult hidden" name = "content"></input>
+              <input class="type hidden" name = "type">
+              <input type="text" class="hidden file" name="file" >
+              <button type="submit" class="btn btn-primary btn-block mt-3">Create</button>
+          </form>
+          </div>
+        </div>
+          
+        
+      
+
+    </div>
+  
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    function changeFile(e){
+        let name = e.files[0].name;
+        document.getElementsByClassName('file')[0].value= name;
+        document.getElementsByClassName('file')[1].value= name.substr(0, name.length-4);
+        document.getElementsByClassName('file')[2].value= name.substr(0, name.length-4);
+        document.getElementsByClassName('file')[3].value= name.substr(0, name.length-4);
+        
+    }
+    function handleClick(myRadio) {
+      let val = myRadio.value;
+
+      if(val == "1"){
+        let form = document.getElementById("form1");
+        form.style.display = 'block';
+        form = document.getElementById("form2");
+        form.style.display = 'none';
+        form = document.getElementById("form3");
+        form.style.display = 'none';
+        
+      }
+      else if(val == "2"){
+        let form = document.getElementById("form2");
+        form.style.display = 'block';
+        form = document.getElementById("form1");
+        form.style.display = 'none';
+        form = document.getElementById("form3");
+        form.style.display = 'none';
+      }
+      else{
+        let form = document.getElementById("form3");
+        form.style.display = 'block';
+        form = document.getElementById("form1");
+        form.style.display = 'none';
+        form = document.getElementById("form2");
+        form.style.display = 'none';
+      }
+    }
+
+    $(function () {
+      //initial
+        let form = document.getElementById("form1");
+        form.style.display = 'block';
+        form = document.getElementById("form2");
+        form.style.display = 'none';
+        form = document.getElementById("form3");
+        form.style.display = 'none';
+
+        let item= document.getElementById("radio1");
+        item.checked = true;
+
+        document.getElementsByClassName('type')[0].value= 1;
+        document.getElementsByClassName('type')[1].value= 3;
+        document.getElementsByClassName('type')[2].value= 2;
+        
+        
+
+        $('#throughputRateForm').on('submit', function (e) {
+            e.preventDefault();
+
+            var form = $(this)[0];
+            var formData = new FormData(form);
+            // debugger;
+            $.ajax({
+                url: 'http://localhost:5000/background_check_throughputrate',
+                method: 'POST',
+                data: formData,
+                // crossDomain: true,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    
+                    document.getElementsByClassName('throughputRateResult')[0].value= data;
+                    document.getElementsByClassName('throughputRateResult')[1].value= data;
+                    document.getElementsByClassName('throughputRateResult')[2].value= data;
+                }
+            });
+        });
+
+
+        
+
+    });
+</script>
+</html>
