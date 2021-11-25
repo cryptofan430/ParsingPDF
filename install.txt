@@ -1,0 +1,17 @@
+Environment Setup
+
+1.python
+	https://www.python.org/downloads/release/python-3100/
+2.php
+	https://www.apachefriends.org/download.html
+
+Installation
+
+	1. run pip_install.bat
+	2. run setting.bat
+
+Execution
+
+	1. run server.bat
+	2. run index.html
+
